@@ -19,7 +19,7 @@ module Budgets
         {
           can: true,
           callback_name: 'can_manage_budgets',
-          name: 'Can Manage Budgets'
+          name: 'Can Manage All Budgets'
         }
       ]
     end
