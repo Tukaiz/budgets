@@ -66,8 +66,7 @@ module Budgets
 
       ## This will likely be used to define budgets accessible at checkout
       def can_access_child_budgets_associated_throu_budget_groups
-        UserEditContext.call(@user, @site)
-        budget_ids = @user.full_claims.flat_map do |claim|
+        budget_ids = @user.claims.for_site(@site).flat_map do |claim|
           claim.budget_groups
         end.flat_map{ |bg| bg.budget_ids }
         can :read, Budget, id: budget_ids
